@@ -1,0 +1,60 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+!example/**/*.go
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Project-specific output
+/dist
+/tmp
+
+# Dependency directories (remove these lines if you're using vendoring)
+/vendor/
+Godeps/
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+.vscode/
+*.vscode
+*.sublime-workspace
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+
+# Other files and directories to ignore
+*.log
+*.csv
+*.dat
+*.tmp
+*.bak
+*.tar.gz
+*.zip
+*.tar.xz
+
+# Ignore the go.mod and go.sum files if you're not using Go modules (uncomment these lines if needed)
+# go.mod
+# go.sum
+
+# Certificates
+*.cert
+*.key
+
+# dotenv environment variables file
+.env
+
+fileStruct
