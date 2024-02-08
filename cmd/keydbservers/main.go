@@ -16,13 +16,13 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	defer listener.Close()
+	// defer listener.Close()
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
 			fmt.Errorf("unimplemented %s", err.Error())
 		}
-		handleConnection(conn)
+		go handleConnection(conn)
 	}
 }
 
