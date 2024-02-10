@@ -29,7 +29,7 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
-	conn.Write([]byte("You are now connected in main fraim\n"))
+	conn.Write([]byte("You are now connected in main fraim"))
 	for {
 		message, err := bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
