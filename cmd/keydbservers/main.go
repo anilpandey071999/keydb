@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -28,13 +29,18 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
+	conn.Write([]byte("You are now connected in main fraim\n"))
 	for {
 		message, err := bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
 			fmt.Println("Connection Colsed", err.Error())
 			return
 		}
-		fmt.Println("Message Recived: ", message, string(message))
+		if strings.TrimSpace(message) == string("exit") {
+			conn.Close()
+			return
+		}
+		fmt.Println("Message Recived: ", message, string(message), string(message) == string("exit"))
 		conn.Write([]byte(message))
 	}
 }
