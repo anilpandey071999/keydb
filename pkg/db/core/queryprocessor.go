@@ -58,11 +58,9 @@ func QueryProcesser(query string) ([]string, error) {
 		if !ok {
 			return nil, fmt.Errorf("GET: key not found")
 		}
-		switch value.(type) {
+		switch value := value.(type) {
 		case string:
-			return []string{value.(string)}, nil
-		case int, float32, float64:
-			return []string{fmt.Sprintf("%d", value.(int))}, nil
+			return []string{value}, nil
 		case map[string]interface{}:
 			jsonData, err := json.Marshal(value)
 			if err != nil {

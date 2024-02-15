@@ -22,7 +22,7 @@ func main() {
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
-			fmt.Errorf("unimplemented %s", err.Error())
+			fmt.Println("unimplemented: ", err.Error())
 		}
 		go handleConnection(conn)
 	}
@@ -30,7 +30,7 @@ func main() {
 
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
-	conn.Write([]byte("You are now connected in main fraim"))
+	// conn.Write([]byte("You are now connected in main fraim"))
 	for {
 		message, err := bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
