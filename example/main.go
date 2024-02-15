@@ -12,7 +12,7 @@ func main() {
 	data, err := keyDB.SET("hello", 125)
 	fmt.Println("SET: ", data, err)
 	data, err = keyDB.GET("hello")
-	fmt.Println("GET: ", data, err)
+	fmt.Println("GET: ", data)
 	data, err = keyDB.GET("hello")
 	fmt.Println("GET: ", data, err)
 	data, err = keyDB.DELETE("hello")
