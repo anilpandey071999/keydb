@@ -19,5 +19,11 @@ func main() {
 	fmt.Println("DELETE: ", data, err)
 	data, err = keyDB.GET("hello")
 	fmt.Println("GET: ", data, err)
+	sample_map := make(map[string]bool)
+	sample_map["hello2"] = true
+	data, err = keyDB.SET("hello!!", sample_map)
+	fmt.Println("SET MAP: ", data, err)
+	data, err = keyDB.GET("hello!!")
+	fmt.Println("GET MAP: ", data, err)
 	keyDB.Exit()
 }
