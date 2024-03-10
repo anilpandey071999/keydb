@@ -39,10 +39,11 @@ const (
 var kv = NewKeyValueStore()
 
 func QueryProcesser(query string) ([]string, error) {
+	fmt.Print("query:- ", query)
 	// Split the query string into tokens
 	tokens := strings.Fields(query)
 	if len(tokens) < 2 {
-		return nil, fmt.Errorf("invalid operation")
+		return nil, fmt.Errorf("invalid operation\n")
 	}
 
 	fmt.Print(len(tokens))

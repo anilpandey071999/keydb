@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/anilpandey071999/keydb/pkg/db/core"
+	"github.com/anilpandey071999/keydb/pkg/db/persistence"
 )
 
 func main() {
@@ -48,6 +49,9 @@ func handleConnection(conn net.Conn) {
 		if err != nil {
 			conn.Write([]byte(err.Error()))
 		}
+
+		persistence.WriteAOF(message)
+
 		jsonData, err := json.Marshal(result)
 		if err != nil {
 			conn.Write([]byte(err.Error()))
